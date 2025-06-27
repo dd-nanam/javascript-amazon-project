@@ -12,4 +12,12 @@ describe('Test suite: format current',() => {
     it('Rounding up',() =>{
         expect(formatCurrency(2000.5)).toEqual('20.01')
     })
+    
+    it('Rounding down',() =>{
+        expect(formatCurrency(2000.4)).toEqual('20.00')
+    })
+    it('Negative Number',() =>{
+        expect(formatCurrency(-2000.4)).toEqual('-20.00')
+    })
+
 });
