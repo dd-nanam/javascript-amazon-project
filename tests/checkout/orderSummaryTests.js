@@ -1,13 +1,17 @@
 import { renderOrderSummary } from "../../scripts/checkout/orderSummary.js";
 import { loadFromStorage, cart } from "../../data/cart.js";
-import {getProduct} from "../../data/products.js";
+import {getProduct,loadProducts} from "../../data/products.js";
 import { formatCurrency } from '../../scripts/utils/money.js';
 
 describe('Test suite: render Order summary', () =>{
     const productId1 = 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6';
 
     const productId2 = '15b6fc6f-327a-4ec4-896f-486349e85a3d';
-
+    beforeAll((done)=>{
+        loadProducts(()=>{
+            done();
+        });
+    });
     beforeEach(()=>{
         document.querySelector('.js-test-container').innerHTML=
         `
